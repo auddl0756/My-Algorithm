@@ -1,1 +1,1 @@
-graph algorithm, such  as djikstra, floyd, bellan ford
+graph algorithm, such  as djikstra, floyd, bellman ford
