@@ -18,7 +18,7 @@ void normalize(vector<int>& C){
 	C.push_back(0);
 	for(int i=0;i<C.size()-1;i++){
 		if(C[i]<0){
-			int borrow = (abs(C[i]+9)/10;
+			int borrow = (abs(C[i]+9))/10;
 			C[i+1]-=borrow;
 			C[i]+=10*borrow;
 		}else{
