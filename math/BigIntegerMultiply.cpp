@@ -43,6 +43,48 @@ vector<int> multiply(vector<int>& A,vector<int>& B){
 	
 }
 
+
+//큰 수 덧셈.
+vector<int> add(vector<int>& A,vector<int>&B){
+	int al=A.size(),bl=B.size();
+	vector<int>C(max(al,bl)+1,0);
+	
+	int bigger= al>bl ? 1:0;
+	if(al==bl) bigger=2;
+	//cout<<"c size ="<<C.size()<<"\n";
+	if(bigger){
+		for(int i=0;i<bl;i++){
+			C[i]+=A[i]+B[i];
+			C[i+1]+=(C[i]/10);
+			C[i]%=10;
+		}
+		for(int i=bl;i<al;i++){
+			C[i]+=A[i];
+			C[i+1]+=(C[i]/10);
+			C[i]%=10;
+		}
+	}else if(bigger==0){
+		for(int i=0;i<al;i++){
+			C[i]+=A[i]+B[i];
+			C[i+1]+=(C[i]/10);
+			C[i]%=10;
+		}
+		for(int i=al;i<bl;i++){
+			C[i]+=B[i];
+			C[i+1]+=(C[i]/10);
+			C[i]%=10;
+		}
+	}else{
+		for(int i=0;i<al;i++){
+			C[i]+=A[i]+B[i];
+			C[i+1]+=(C[i]/10);
+			C[i]%=10;
+		}
+	}
+	while(C.size()>1 && C.back()==0) C.pop_back();
+	return C;
+}
+
 int main(){
 	string a,b;
 	cin>>a>>b;
