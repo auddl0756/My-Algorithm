@@ -64,7 +64,8 @@ void pick3(int n,vector<int>&picked,int toPick,int start){
 	 
 	for(int next=start;next<n;next++){
 		picked.push_back(next);
-		pick3(n,picked,toPick-1,start);
+		//pick3(n,picked,toPick-1,start);  //next¿¿ ¿¿¿¿¿¿¿¿ ¿¿¿ ¿¿ ¿¿¿ start ¿¿ ¿¿¿¿¿. ¿¿ ¿¿.
+		pick3(n.picked,toPick-1,next);   
 		picked.pop_back();
 	}
 }
