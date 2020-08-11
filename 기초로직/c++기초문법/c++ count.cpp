@@ -5,9 +5,9 @@ using namespace std;
 #define pii pair<int,int>
 #define sorta(a) sort(a.begin(),a.end());
 #define rsorta(a) sort(a.rbegin(),a.rend());
-#define sorta(a,n) sort(a,a+n);
+#define sorta2(a,n) sort(a,a+n);
 #define p(a) for(int i=0;i<a.size();i++)cout<<a[i]<<" ";cout<<"\n";
-#define p(a,n) for(int i=0;i<n;i++)cout<<a[i]<<" ";cout<<"\n";
+#define p2(a,n) for(int i=0;i<n;i++)cout<<a[i]<<" ";cout<<"\n";
 typedef long long ll;
 
 //count(begin, end, value)
@@ -20,7 +20,11 @@ typedef long long ll;
 
 int main(){
 	ios_base::sync_with_stdio(false); cin.tie(0);
+	
+	//count() for vector
 	vector<int> A={1,1,1,1,2,2,2,3,3,4};
+	
+	
 	cout<<"1ÀÇ °¹¼ö = "<<count(A.begin(),A.end(),1)<<"\n"; 
 	
 	int odd =count_if(A.begin(),A.end(),[](int x){
@@ -35,7 +39,15 @@ int main(){
 	
 	cout<<odd<<" "<<even<<" "<<under_3<<"\n";
 	
+	
+	//count() for string
 	string s="abbccc";
 	
 	cout<< count(s.begin(),s.end(),'b')<<"\n"; 
+	
+	
+	///reverse 
+	p(A);
+	reverse(A.begin(),A.end());
+	p(A);
 }
