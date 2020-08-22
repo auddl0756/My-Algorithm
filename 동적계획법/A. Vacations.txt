@@ -1,0 +1,4 @@
+https://codeforces.com/problemset/problem/698/A
+
+상태를 잘 정의하니 버벅거렸지만 풀 수는 있었다.
+실버급인데.. 아직 한 번에 안 된다.
