@@ -19,7 +19,7 @@ matrix operator * (const matrix& A,const matrix& B){
 		}
 	}
 	return C;
-}
+} 
 
 matrix I;
 
@@ -65,6 +65,5 @@ int main(){
 	
 	ll ans= M_i_1[1][1];
 	cout<<ans<<'\n';
-	
 	
 }
