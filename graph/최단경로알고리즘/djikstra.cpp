@@ -30,7 +30,7 @@ int n,m;
 vector<pii> graph[MAX];		
 vector<int> mincost;			//src에서 각 노드까지 최대 비용. 
 bool visited[MAX];
-int trace[MAX]; 
+int trace[MAX]; 		//추적? 
 
 //가중치 그래프에서 출발지에서 각 노드까지의 최단 거리. ==이게 다익스트라구나.. 
 void mincost_bfs(int src){		//==dijkstra algorithm ==priority bfs
@@ -41,7 +41,7 @@ void mincost_bfs(int src){		//==dijkstra algorithm ==priority bfs
 	while(not pq.empty()){
 		int here=pq.top().fs,cost=pq.top().sc; pq.pop();
 		
-		if(mincost[here] < cost) continue;			//갱신할 비용이 현재 비용보다 작으면 그건 고려할 필요도 없다. 
+		if(mincost[here] < cost) continue;			//갱신할 비용이 현재 비용보다 크면 그건 고려할 필요도 없다. 
 		
 		for(int i=0;i<graph[here].size();i++){
 			int nxt=graph[here][i].fs,nxtcost=cost+graph[here][i].sc;
