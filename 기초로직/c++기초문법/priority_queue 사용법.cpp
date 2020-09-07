@@ -48,6 +48,22 @@ void minheap_pii(){
 	}
 }
 
+/////////////////////////////////////
+// 구조체를 위한 priority_queue 사용법  
+struct Obj{				
+	int time;
+	char state;
+};
+
+bool operator < (Obj a, Obj b){				// '<' operator 구현. '>'는 없다고 함. 구현체 내에서 부호를 바꿔야함. 
+	if(a.time>b.time) return true;			//// 시간이 작을수록, 시간이 같을 때, state값이 작은 것이 먼저 나옴. 
+	if(a.time==b.time){
+		if(a.state>b.state) return true;
+		else return false;
+	}
+	return false;
+}
+
 int main(){
 	//ios_base::sync_with_stdio(false); cin.tie(0);
 	cin>>N;
@@ -56,7 +72,21 @@ int main(){
 	minheap_pii();
 
 	
-
+	priority_queue<Obj> pq;
+	Obj obj[5];
+	for(int i=0;i<5;i++){
+		obj[i].time=i+1;
+		obj[i].state='a'+i;
+		pq.push(obj[i]); 
+	}
+	
+	Obj obj2; obj2.time=2,obj2.state='a';		
+	pq.push(obj2);
+	
+	while(not pq.empty()){					
+		Obj o=pq.top(); pq.pop();
+		cout<<o.time<<" "<<o.state<<"\n";
+	}
 	
 	
 
