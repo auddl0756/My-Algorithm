@@ -44,7 +44,7 @@ int main(){
 		}
 	} 
 	
-	dq.erase(dq.begin()+2);		//dqeue의 앞에서 2번째 원소 지우기. 
+	dq.erase(dq.begin()+2);		//dqeue의 앞에서 3번째 원소 지우기. 
 	
 	for(int i=0;i<dq.size();i++) cout<<dq[i]<<" "; cout<<"\n"; 	//이렇게 인덱스로 참조도 가능. (큐에선 불가능한) 
 
