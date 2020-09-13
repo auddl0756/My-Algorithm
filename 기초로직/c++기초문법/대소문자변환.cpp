@@ -43,6 +43,16 @@ vector<string> UPPER(vector<string>& strs){
 	return strs;
 }
 
+string LOWER(string s){
+	for(int i=0;i<s.size();i++) s[i]=tolower(s[i]);
+	return s;
+}
+
+string UPPER(string s){
+	for(int i=0;i<s.size();i++) s[i]=toupper(s[i]);
+	return s;
+}
+
 int main(){
 	ios_base::sync_with_stdio(false); cin.tie(0);
 	vector<string> a={"AaBb","CcDd","XXXXxxxx"}; 
