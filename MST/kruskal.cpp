@@ -1,15 +1,37 @@
 //algorithm for finding minimun spanning tree's edge cost
-//edge costë¡œ ì •ë ¬í•˜ê³  nodeë“¤ì„ ì—°ê²°ì‹œí‚¤ë©´ ê·¸ê²ƒì´ MSTê°€ ëœë‹¤. 
-#include <iostream>
-#include <vector>
-#include <algorithm>
+//edge cost·Î Á¤·ÄÇÏ°í nodeµéÀ» ¿¬°á½ÃÅ°¸é ±×°ÍÀÌ MST°¡ µÈ´Ù. 
 
-using namespace std;
+#include <bits/stdc++.h>
 
-#define ll long long;
 #define pii pair<int,int>
+#define pdi pair<double,int>
+#define ppi pair<pair<int,int>,int>
+#define pipi pair<pair<int,int>,pair<int,int> >
+#define fs first
+#define sc second
+
+#define sorta(a) sort(a.begin(),a.end());
+#define rsorta(a) sort(a.rbegin(),a.rend());
+#define sorta2(a,n) sort(a,a+n);
+#define debug(a) for(int i=0;i<a.size();i++)cout<<a[i]<<" ";cout<<"\n";
+#define debug2(a,n) for(int i=0;i<n;i++)cout<<a[i]<<" ";cout<<"\n";
+
+#define all(v) (v).begin(), (v).end()
+#define lbd(arr,num) lower_bound(all(arr),num)
+
+#define maxi(a,b,c) max(a,max(b,c))
+#define mini(a,b,c) min(a,min(b,c))
+#define msi map<string,int>
+
+typedef long long ll;
+using namespace std;
+//typedef vector<vector<int> > matrix;
+#define pll pair<ll,ll>
+#define ppl pair<ll,pair<ll,ll>>
+
 const int INF = (int)1e9 + 10;
 const int MAX = 100001;
+int V, E;
 
 //disjoint set class
 class Set {
@@ -37,12 +59,11 @@ public:
 
 };
 
-int V, E;
 
 int main() {
 	iosbase;
 	cin >> V >> E;
-	vector < pair<ll,pii> > edges;
+	vector<ppl> edges;
 
 	for (int i = 0; i < E; i++) {
 		int a, b, c;
@@ -51,8 +72,7 @@ int main() {
 	}
 	
 	//sort by cost
-	sort(edges.begin(), edges.end());
-	int lastEdgecost = 0;
+	sorta(edges);
 	
 	//use disjoint set to check if node is connected
 	Set *s = new Set();
@@ -61,7 +81,7 @@ int main() {
 	//***iterate for all edges ('E' times) ***
 	for (int i = 0; i < E; i++) {
 		int n1, n2,c;
-		n1 = edges[i].second.first; n2 = edges[i].second.second; c = edges[i].first;
+		n1 = edges[i].sc.fs; n2 = edges[i].sc.sc; c = edges[i].fs;
 		int p1, p2;
 		p1 = s->find(n1); p2 = s->find(n2);
 		if (p1 == p2) continue;
@@ -70,7 +90,7 @@ int main() {
 		ansCost += c;
 	}
 	cout << (ll)cost << "\n";
-
+	
 
 }
 
