@@ -34,6 +34,10 @@ bool p[MAX];
 vector<int> primes;
 int dp[MAX];
 
+
+//tip : 연속합->prefixsum처럼 합쳐가면서 투포인터
+
+
 void eratos(){
 	for(int i=2;i<MAX;i++){
 		if(p[i]) continue;
