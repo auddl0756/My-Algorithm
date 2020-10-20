@@ -25,7 +25,7 @@ typedef long long ll;
 
 //ll gcd(ll a,ll b){return b?gcd(b,a%b):a;}
 
-const double PI =2.0*acos(0.0);	//acos(x) : arcCosine(x) ,arccos(0) =PI
+const double PI =2.0*acos(0.0);	//acos(x) : arcCosine(x) ,arccos(0) =PI/2
 
 struct VECTOR{
 	double x,y;
