@@ -17,7 +17,10 @@ double ccw(VECTOR p,VECTOR a,VECTOR b){
 bool lineIntersection(VECTOR a,VECTOR b,VECTOR c,VECTOR d,VECTOR& ret){		
 	double determinant = (b-a).cross_product(d-c);		//check if parrallel
 	if(fabs(determinant)<DBL_EPSILON) return false;		//These are parrallel
-	ret=a+(b-a)*((c-a).cross_product(d-c)/b.cross_product(d));
+		
+	//ret=a+(b-a)*((c-a).cross_product(d-c)/b.cross_product(d));	//...It was error
+	
+	ret=a+(b-a)*((c-a).cross_product(d-c)/determinant);
 	return true;		//found intersection.
 } 
 // a + p*B = c + q*D   ... p,q는 scalar, a,c는 직선의 시작점,b,d는 방향벡터
