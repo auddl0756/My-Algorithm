@@ -8,6 +8,7 @@
 //O(n^2) 
 
 //typedef vector<VECTOR> polygon; 			//already declared above.
+
 polygon giftWrap(const vector<VECTOR>& points){
 	int n=points.size();
 	polygon hull;
@@ -99,4 +100,5 @@ int main() {
 		}
 	}
 }
+
 
