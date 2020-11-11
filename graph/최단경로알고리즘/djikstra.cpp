@@ -55,7 +55,7 @@ void mincost_bfs(int src){		//==dijkstra algorithm ==priority bfs
 			int nxt=graph[here][i].sc,nxtcost=cost+graph[here][i].fs;
 			if(nxtcost < mincost[nxt]){
 				mincost[nxt]=nxtcost;
-				pq.push({nxt,nxtcost});
+				pq.push({nxtcost,nxt});
 				trace[nxt]=here;
 			}
 		}
