@@ -54,13 +54,13 @@ int query(int l,int r){	//[ㅣ,r)구간의 합 또는 곱을 구해줄 수 있음. 여기선 곱
 	while(l<r){
 		if(l&1){
 			ret*=tree[l];
-			res%=mod;
+			ret%=mod;
 			l+=1;
 		}
 		if(r&1){
 			r-=1;
-			res*=tree[r];
-			res%=mod;
+			ret*=tree[r];
+			ret%=mod;
 		}
 		l>>=1; r>>=1;
 	}
@@ -72,7 +72,7 @@ int main() {
 	int Q,n;
 	for(int i=0;i<MAX;i++) tree[i]=1;
 	
-	for(int i=0;i<n;i++) cin>>tree[n+i];
+	for(int i=0;i<n;i++) cin>>tree[n+i];		
 	
 	build();	//build segment tree
 	
