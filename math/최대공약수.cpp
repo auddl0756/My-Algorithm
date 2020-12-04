@@ -43,6 +43,29 @@ int getgcd2(int a,int b){
 	else return getgcd2(b,a%b);
 }
 
+//<여러 gcd함수들. 비슷한 논리인데 형식들이 다양> 
+//ll gcd(ll a, ll b){
+//	if(b>a) swap(a,b);
+//	if(a%b==0) return b;
+//	else return gcd(b,a%b);
+//}
+
+//ll GCD(ll a,ll b){return b?GCD(b,a%b):a;}
+
+//ll gcd(ll a, ll b) { for (; b; a %= b, swap(a, b)); return a; }
+ 
+ 
+////*************** use this******************************** 
+//a>b이든 b>a이든 상관없음.
+//(4,8) 들어오면 -> (8,4%8 ==4) -> (4,8%4==0) :: return 4
+//(8,4) 들어오면 -> (4,8%4==0) ->(4,0) :: return 4
+ll gcd(ll a, ll b){
+	if(b) return gcd(b,a%b);
+	else return a;
+}
+//**********************************************************
+
+
 int main() {
 	ios_base::sync_with_stdio(false); cin.tie(0);
 	int a,b; cin>>a>>b;
