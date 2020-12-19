@@ -8,9 +8,9 @@ using namespace std;
 typedef long long ll;
 
 
+//비재귀 버전 
 const int MAX=1e9+1e6,MAX2=201;	//MAX = 필요한 범위 내의 이항계수 최댓값. MAX2= nCr에서 n의 최댓값 
 int bino[MAX2][MAX2];
-
 void calc_binomial(){
 	for(int i=0;i<MAX2;i++){   		//base cases.
 		bino[i][0]=1, bino[i][i]=1;
@@ -22,10 +22,31 @@ void calc_binomial(){
 	}
 }
 
+
+//재귀버전 
+ll dp[2100][2100];
+ll p;
+
+ll solve(ll n, ll r){		//precalc binomials.
+	if(r>n || n==0) return 0;		
+ 
+	if(r==0 || n==r) return 1;
+	ll& ret=dp[n][r];
+	if(ret!=-1) return ret;
+	ret=0;
+	
+	ret=(solve(n-1,r)%p+solve(n-1,r-1)%p)%p;
+
+	return ret;
+}
+
 int main(){
 	//ios_base::sync_with_stdio(false); cin.tie(0);	
 	calc_binomial();
 	
 	int n,r; cin>>n>>r;
 	cout<<bino[n][r]<<"\n";
+	
+	//memset(dp,-1,sizeof(dp));
+	//cout<<solve(n,r)<<'\n';
 }
