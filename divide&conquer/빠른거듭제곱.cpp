@@ -20,6 +20,16 @@ ll solve(ll a,ll b){
 	}
 }
 
+//이렇게 해야함. 위에 처럼하면 b%2==0일 때, solve(),solve() 2번이나 호출되서 느린거 같음. 
+ll fastpow(ll x,ll e){	//calc x^e
+	if(e==0) return 1ll;
+	if(e%2) return (fastpow(x,e-1)*x)%mod;
+	else{
+		ll half=fastpow(x,e/2)%mod;
+		return (half*half)%mod;
+	}
+}
+
 int main(){
 	ios_base::sync_with_stdio(false); cin.tie(0);
 	//calc a^b %mod
